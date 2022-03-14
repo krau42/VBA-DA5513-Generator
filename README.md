@@ -15,9 +15,9 @@ Here is my first attempt with macros and messing with VBA to generate a DA5513: 
 
 ## Filling in the Excel:
 1. Select the blank DA Form 5513 as your template (button labled "1. Click to select File")
-  * Once selected, it will populate the orange tinted cell (D2)
+  * Once selected, the file path will populate the orange tinted cell (D2)
 2. Select the folder you would like it saved to (button labled "2. Click to select Folder")
-  * Once selected, it will populate the orange tinted cell (D3)
+  * Once selected, the folder path will populate the orange tinted cell (D3)
 3. Input Unit/Activity data in adjecent cell (C5)
 4. Input From Date in adjacent cell (C6)
 5. Input To Date in adjacent cell (E6, leave blank if necessary)
