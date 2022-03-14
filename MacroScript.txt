@@ -1,0 +1,83 @@
+'Mostly followed the following link as a guide: https://www.youtube.com/watch?v=uU55FCbPHCI
+'The below text is the actual macro code itself and can be inputed into the Macro Module 
+
+Sub PDFTemplate()
+Dim PDFFldr As FileDialog
+Set PDFFldr = Application.FileDialog(msoFileDialogFilePicker)
+With PDFFldr
+    .Title = "Select PDF file to attach"
+    .Filters.Add "PDF Type Files", "*.pdf", 1
+    If .Show <> -1 Then GoTo NoSelection
+    Sheet1.Range("D2").Value = .SelectedItems(1)
+End With
+NoSelection:
+End Sub
+
+Sub SavePDFFolder()
+Dim PDFFldr As FileDialog
+Set PDFFldr = Application.FileDialog(msoFileDialogFolderPicker)
+With PDFFldr
+    .Title = "Select a Folder"
+    If .Show <> -1 Then GoTo NoSel
+    Sheet1.Range("D3").Value = .SelectedItems(1)
+End With
+NoSel:
+End Sub
+
+Sub CreatePDFForms() 'Create a 5513 based on the template, save location, and data
+Dim PDFTemplateFile, NewPDFName, SavePDFFolder
+Dim ItemRow, LastRow As Long
+Dim UnitData, FromDate, ToDate, FileName As String
+With Sheet1
+'LastRow = .Range("C9999").End(xlUp).Row
+PDFTemplateFile = .Range("D2").Value
+SavePDFFolder = .Range("D3").Value
+UnitData = .Range("C5").Value 'Pulls Unit/ACtivity data from Cell C5
+FromDate = .Range("C6").Value 'Pulls start date data from Cell C6
+ToDate = .Range("E6").Value 'Pulls end date data from Cell E6
+FileName = .Range("G6").Value
+FileNamePath = SavePDFFolder & "\" & FileName & ".pdf"
+
+ThisWorkbook.FollowHyperlink (PDFTemplateFile) 'opens file at PDFTemplateFIle
+
+'Below chunk does the following to the PDF: tabs, puts in unit data, waits, and tabs
+Application.SendKeys "{Tab}", True
+Application.SendKeys UnitData, True
+Application.Wait Now + 0.00002
+Application.SendKeys "{Tab}", True
+
+'Below chunk does the following to the PDF: puts in from data, waits, and tabs
+Application.SendKeys FromDate, True
+Application.Wait Now + 0.00001
+Application.SendKeys "{Tab}", True
+
+'Below chunk does the following to the PDF: puts in to data, waits, and tabs
+Application.SendKeys ToDate, True
+Application.Wait Now + 0.00001
+Application.SendKeys "{Tab}", True
+
+'The following Chunk iterates over the lsit and transcribes to the PDF
+For ItemRow = 8 To 111 'iterate over cell numbers 2-114
+ItemName = .Range("C" & ItemRow).Value
+ItemInfo = .Range("F" & ItemRow).Value
+Application.SendKeys ItemName, True
+Application.Wait Now + 0.00001
+Application.SendKeys "{Return}", True
+Application.SendKeys ItemInfo, True
+Application.Wait Now + 0.00001
+Application.SendKeys "{Tab}", True
+
+Next ItemRow
+'finding if the document exists, killing it, then saving document as FileName
+If Dir(FileNamePath) <> Empty Then Kill (FileNamePath)
+Application.SendKeys "^+{s}", True
+Application.Wait Now + 0.00003
+Application.SendKeys FileName & ".pdf", True
+Application.Wait Now + 0.00002
+Application.SendKeys "{Return}", True
+Application.Wait Now + 0.00002
+
+Application.SendKeys "{numlock}%s", True
+
+End With
+End Sub
