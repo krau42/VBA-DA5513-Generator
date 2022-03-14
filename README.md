@@ -1,7 +1,4 @@
-# VBA
-Getting started with VBA
-
-## DA5513 Generator
+# DA5513 Generator
 Here is my first attempt with macros and messing with VBA to generate a DA5513: Key Control Register and Inventory
 
 ---
@@ -11,13 +8,9 @@ Here is my first attempt with macros and messing with VBA to generate a DA5513: 
 - Blue cells correlate to the steps listed in "Filling in the Excel"
 - User inputed data goes into green cells
 
----
-
 ## Setting Up:
 1. Download a blank DA Form 5513 from https://armypubs.army.mil/ProductMaps/PubForm/Details.aspx?PUB_ID=1002447
 2. Set Adobe as the default to open PDF's
-
----
 
 ## Filling in the Excel:
 1. Select the blank DA Form 5513 as your template (button labled "1. Click to select File")
