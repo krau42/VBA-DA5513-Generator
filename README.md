@@ -6,7 +6,7 @@ Here is my first attempt with macros and messing with VBA to generate a DA5513: 
 ## General Rules:
 - Buttons tell you to click
 - Blue cells correlate to the steps listed in "Filling in the Excel"
-- User inputed data goes into green cells
+- User inputed data goes into green cells (the only unlocked ones)
 
 ## Setting Up:
 1. Download a blank DA Form 5513 from https://armypubs.army.mil/ProductMaps/PubForm/Details.aspx?PUB_ID=1002447
