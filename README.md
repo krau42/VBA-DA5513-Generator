@@ -22,10 +22,10 @@ Here is my first attempt with macros and messing with VBA to generate a DA5513: 
 4. Input From Date in adjacent cell (C6)
 5. Input To Date in adjacent cell (E6, leave blank if necessary)
 6. Input the name you would like your PDF to be saved as in adjacent cell (G6)
-7. Input Item Names below (cells C8-C111, leave blank if necessary)
-8. Input serial numbers below (cells C8-C111, leave blank if necessary)
-9. Input quantities below (cells C8-C111, leave blank if necessary)
+7. Input Item Names below (cells C8-C111, leave blank as necessary)
+8. Input Serial Numbers below (cells C8-C111, leave blank as necessary)
+9. Input Key Quantities below (cells C8-C111, leave blank as necessary)
 * *** CAUTION *** Before proceding to step 10, ensure you will not need your computer for the next 5 minutes. The macro is based on key strokes and
   and any inputs will most likely disrupt the process. If you accidentally click Button 10, try pressing the ESC key to cancel the macro. 
 10. Click to generate your DA 5513. Do not touch your computer or click off the PDF.
-11. Click for long term key issue. This will make a Word Doc with each page having its own unique DA5513. 
+11. Not Complete: Click for long term key issue. This will make a Word Doc with each page having its own unique DA5513.
